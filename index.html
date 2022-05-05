@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <style>
+        body {
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <button class="button is-primary" id="add">Addition</button>
+    <br><br>
+    <button class="button is-primary" id="sub">Subtraction</button>
+    <br><br>
+    <button class="button is-primary" id="mult">Multiplication</button>
+    <br><br>
+    <button class="button is-primary" id="div">Division</button>
+    <br><br>
+    <button class="button is-primary" id="sqrt">Square Root</button>
+    <br><br>
+    <button class="button is-primary" id="mod">Modulus</button>
+    <br><br>
+    <button class="button is-primary" id="per">Percent</button>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.all.min.js"></script>
+    <script>
+        const addBtn = document.getElementById('add')
+        const subBtn = document.getElementById('sub')
+        const multBtn = document.getElementById('mult')
+        const divBtn = document.getElementById('div')
+        const sqrtBtn = document.getElementById('sqrt')
+        const modBtn = document.getElementById('mod')
+        const perBtn = document.getElementById('per')
+        addBtn.addEventListener('click', addNum)
+        subBtn.addEventListener('click', subNum)
+        multBtn.addEventListener('click', multNum)
+        divBtn.addEventListener('click', divNum)
+        sqrtBtn.addEventListener('click', sqrtNum)
+        modBtn.addEventListener('click', modNum)
+        perBtn.addEventListener('click', perNum)
+        function addNum(){
+            Swal.fire({
+                html:`Number 1:<input type="number" class="swal2-input" id="a-1"><br><br>Number 2:<input type="number" class="swal2-input" id="a-2">`
+                
+            }).then((result) => {
+                const a1 = document.getElementById('a-1')
+                const a2 = document.getElementById('a-2')
+                if(a1.value.length === 0 || a2.value.length === 0 || a1.value.length === 0 && a2.value.length === 0){
+                    Swal.fire('Enter a number!')
+                }else{
+                    let v1 = parseFloat(a1.value)
+                    let v2 = parseFloat(a2.value)
+                    let val = ((v1 * 10) + (v2 * 10))/10
+                    Swal.fire({
+                        text: `Your Number is ${val}` 
+                    })
+                }
+            })
+        }
+        function subNum(){
+            Swal.fire({
+                html:`Number 1:<input type="number" class="swal2-input" id="a-1"><br><br>Number 2:<input type="number" class="swal2-input" id="a-2">`
+                
+            }).then((result) => {
+                const a1 = document.getElementById('a-1')
+                const a2 = document.getElementById('a-2')
+                if(a1.value.length === 0 || a2.value.length === 0 || a1.value.length === 0 && a2.value.length === 0){
+                    Swal.fire('Enter a number!')
+                }else{
+                    let v1 = parseFloat(a1.value)
+                    let v2 = parseFloat(a2.value)
+                    let val = ((v1 * 10) - (v2 * 10))/10
+                    Swal.fire({
+                        text: `Your Number is ${val}` 
+                    })
+                }
+            })
+        }
+        function multNum(){
+            Swal.fire({
+                html:`Number 1:<input type="number" class="swal2-input" id="a-1"><br><br>Number 2:<input type="number" class="swal2-input" id="a-2">`
+                
+            }).then((result) => {
+                const a1 = document.getElementById('a-1')
+                const a2 = document.getElementById('a-2')
+                if(a1.value.length === 0 || a2.value.length === 0 || a1.value.length === 0 && a2.value.length === 0){
+                    Swal.fire('Enter a number!')
+                }else{
+                    let v1 = parseFloat(a1.value)
+                    let v2 = parseFloat(a2.value)
+                    let val = ((v1*10) * (v2 * 10))/10
+                    Swal.fire({
+                        text: `Your Number is ${val}` 
+                    })
+                }
+            })
+        }
+        function divNum(){
+            Swal.fire({
+                html:`Number 1:<input type="number" class="swal2-input" id="a-1"><br><br>Number 2:<input type="number" class="swal2-input" id="a-2">`
+                
+            }).then((result) => {
+                const a1 = document.getElementById('a-1')
+                const a2 = document.getElementById('a-2')
+                if(a1.value.length === 0 || a2.value.length === 0 || a1.value.length === 0 && a2.value.length === 0){
+                    Swal.fire('Enter a number!')
+                }else{
+                    let v1 = parseFloat(a1.value)
+                    let v2 = parseFloat(a2.value)
+                    let val = v1 / v2
+                    Swal.fire({
+                        text: `Your Number is ${val}` 
+                    })
+                }
+            })
+        }
+        function sqrtNum(){
+            Swal.fire({
+                html:`Number:<input type="number" class="swal2-input" id="a-1">`
+                
+            }).then((result) => {
+                const a1 = document.getElementById('a-1')
+                if(a1.value.length === 0){
+                    Swal.fire('Enter a number!')
+                }else{
+                    let v1 = parseFloat(a1.value)
+                    let val = Math.sqrt(v1)
+                    Swal.fire({
+                        text: `Your Number is ${val}` 
+                    })
+                }
+            })
+        }
+        function modNum(){
+            Swal.fire({
+                html:`Number 1:<input type="number" class="swal2-input" id="a-1"><br><br>Number 2:<input type="number" class="swal2-input" id="a-2">`
+                
+            }).then((result) => {
+                const a1 = document.getElementById('a-1')
+                const a2 = document.getElementById('a-2')
+                if(a1.value.length === 0 || a2.value.length === 0 || a1.value.length === 0 && a2.value.length === 0){
+                    Swal.fire('Enter a number!')
+                }else{
+                    let v1 = parseFloat(a1.value)
+                    let v2 = parseFloat(a2.value)
+                    let val = v1 % v2
+                    Swal.fire({
+                        text: `Your Number is ${val}` 
+                    })
+                }
+            })
+        }
+        function perNum(){
+            Swal.fire({
+                html:`Percent:<input type="number" class="swal2-input" id="a-1"><br><br>100%:<input type="number" class="swal2-input" id="a-2">`
+                
+            }).then((result) => {
+                const a1 = document.getElementById('a-1')
+                const a2 = document.getElementById('a-2')
+                if(a1.value.length === 0 || a2.value.length === 0 || a1.value.length === 0 && a2.value.length === 0){
+                    Swal.fire('Enter a number!')
+                }else{
+                    let v1 = parseFloat(a1.value)
+                    let v2 = parseFloat(a2.value)
+                    let val = (v1 * 0.01) * v2
+                    Swal.fire({
+                        text: `Your Number is ${val}` 
+                    })
+                }
+            })
+        }
+    
+    </script>
+</body>
+</html>
